@@ -38,21 +38,6 @@ public class GameManager : MonoBehaviour
         ordemIngredientes.Add(ingrediente);
         objIngredientes.Add(objIngrediente);
 
-        if (ordemIngredientes[contador].id == int.Parse(ingredientes[contador].text))
-        {
-            ingredientes[contador].color = Color.green;
-            GameManager.instance.pontos++;
-        }
-        else
-        {
-            ingredientes[contador].color = Color.red;
-        }
-
-        contador++;
-
-        if (contador == 4)
-        {
-            StartCoroutine(contarPontos());
-        }
+        objIngrediente.GetComponent<Receita>().pontos();
     }
 }

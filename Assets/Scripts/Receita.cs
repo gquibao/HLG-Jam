@@ -23,8 +23,30 @@ public class Receita : MonoBehaviour
         return random;
     }
 
+    public void pontos()
+    {
+        StartCoroutine(contarPontos());
+    }
+
     IEnumerator contarPontos()
     {
+        if (GameManager.instance.ordemIngredientes[contador].id == int.Parse(ingredientes[contador].text))
+        {
+            ingredientes[contador].color = Color.green;
+            GameManager.instance.pontos++;
+        }
+        else
+        {
+            ingredientes[contador].color = Color.red;
+        }
+
+        contador++;
+
+        if (contador == 4)
+        {
+            StartCoroutine(contarPontos());
+        }
+
         if (GameManager.instance.pontos >= ingredientes.Length)
         {
             resultado.text = "ACERTOU";
