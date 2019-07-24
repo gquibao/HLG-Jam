@@ -9,10 +9,10 @@ public class Receita : MonoBehaviour
 
     public void criarPedido()
     {
-        ingredientes[0].text = random().ToString();
-        ingredientes[1].text = random().ToString();
-        ingredientes[2].text = random().ToString();
-        ingredientes[3].text = random().ToString();
+        foreach (TextMeshProUGUI txtIngrediente in ingredientes)
+        {
+            txtIngrediente.text = random().ToString();
+        }
     }
 
     public int random()
