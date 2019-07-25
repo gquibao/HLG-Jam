@@ -17,7 +17,7 @@ public class Receita : MonoBehaviour
 
     public int random()
     {
-        int random = Random.Range(0, 2);
+        int random = Random.Range(0, 4);
         return random;
     }
 }

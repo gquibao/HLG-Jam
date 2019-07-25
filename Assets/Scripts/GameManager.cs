@@ -78,7 +78,11 @@ public class GameManager : MonoBehaviour
         ordemIngredientes.Clear();
         Destroy(ordemReceitas[0].gameObject);
         ordemReceitas.RemoveAt(0);
-        criarNovoPedido();
+
+        if (ordemReceitas.Count <= 0)
+        {
+            criarNovoPedido();
+        }
     }
 
     IEnumerator spawnarNovosPedidos()
