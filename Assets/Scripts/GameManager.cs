@@ -8,12 +8,19 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject prefabPedido;
+    public GameObject efeitoFumaca;
+
     public Transform varalPedidos;
 
     public List<Ingrediente> ordemIngredientes = new List<Ingrediente>();
     public List<Receita> ordemReceitas = new List<Receita>();
 
+    public Sprite spr_Acerto;
+    public Sprite spr_Erro;
+
     public int pontos = 0;
+
+    float tempoNovaReceita = 10;
 
     private void Awake()
     {
@@ -48,7 +55,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < ordemIngredientes.Count; i++)
         {
-            if (ordemIngredientes[i].id == int.Parse(ordemReceitas[0].ingredientes[i].text))
+            if (ordemIngredientes[i].id == ordemReceitas[0].ingredientesID[i])
             {
                 contadorAcertos++;
             }
@@ -58,12 +65,16 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Acertou");
             pontos++;
+            ordemReceitas[0].resultado.enabled = true;
+            ordemReceitas[0].resultado.sprite = spr_Acerto;
             StartCoroutine(limparListas());
         }
 
         else
         {
             pontos--;
+            ordemReceitas[0].resultado.enabled = true;
+            ordemReceitas[0].resultado.sprite = spr_Erro;
             StartCoroutine(limparListas());
         }
     }
@@ -87,11 +98,17 @@ public class GameManager : MonoBehaviour
 
     IEnumerator spawnarNovosPedidos()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(tempoNovaReceita);
         if (ordemReceitas.Count < 3)
         {
             criarNovoPedido();
         }
         StartCoroutine(spawnarNovosPedidos());
+    }
+
+    IEnumerator aparecerBolo()
+    {
+
+        yield return new WaitForSeconds(0);
     }
 }
