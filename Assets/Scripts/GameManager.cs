@@ -15,10 +15,15 @@ public class GameManager : MonoBehaviour
     public List<Ingrediente> ordemIngredientes = new List<Ingrediente>();
     public List<Receita> ordemReceitas = new List<Receita>();
 
+    public SpriteRenderer boloFinal;
+
+    public Sprite[] bolos;
     public Sprite spr_Acerto;
     public Sprite spr_Erro;
 
-    public int pontos = 0;
+    public int pratosEntregues = 0;
+    public TextMeshProUGUI txt_PratosEntregues;
+    public int pratosErrados = 0;
 
     float tempoNovaReceita = 10;
 
@@ -29,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        txt_PratosEntregues.text = "x 0";
         criarNovoPedido();
         StartCoroutine(spawnarNovosPedidos());
     }
@@ -64,28 +70,34 @@ public class GameManager : MonoBehaviour
         if (contadorAcertos >= 4)
         {
             Debug.Log("Acertou");
-            pontos++;
+            pratosEntregues++;
+            txt_PratosEntregues.text = "x " + pratosEntregues;
             ordemReceitas[0].resultado.enabled = true;
             ordemReceitas[0].resultado.sprite = spr_Acerto;
-            StartCoroutine(limparListas());
+            StartCoroutine(aparecerBolo());
+            StartCoroutine(limparListas(true));
         }
 
         else
         {
-            pontos--;
+            pratosErrados++;
             ordemReceitas[0].resultado.enabled = true;
             ordemReceitas[0].resultado.sprite = spr_Erro;
-            StartCoroutine(limparListas());
+            StartCoroutine(limparListas(false));
         }
     }
 
-    IEnumerator limparListas()
+    IEnumerator limparListas(bool isPonto)
     {
-        yield return new WaitForSeconds(2);
-        foreach (Ingrediente ingrediente in ordemIngredientes)
+        yield return new WaitForSeconds(3);
+        if (!isPonto)
         {
-            Destroy(ingrediente.gameObject);
+            foreach (Ingrediente ingrediente in ordemIngredientes)
+            {
+                Destroy(ingrediente.gameObject);
+            }
         }
+        boloFinal.sprite = null;
         ordemIngredientes.Clear();
         Destroy(ordemReceitas[0].gameObject);
         ordemReceitas.RemoveAt(0);
@@ -108,7 +120,14 @@ public class GameManager : MonoBehaviour
 
     IEnumerator aparecerBolo()
     {
-
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(1);
+        foreach (Ingrediente ingrediente in ordemIngredientes)
+        {
+            Destroy(ingrediente.gameObject);
+        }
+        efeitoFumaca.SetActive(true);
+        boloFinal.sprite = bolos[Random.Range(0, bolos.Length)];
+        yield return new WaitForSeconds(1);
+        efeitoFumaca.SetActive(false);
     }
 }
