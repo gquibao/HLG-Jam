@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
 {
     public void Jogar()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Jogo");
     }
 
     public void Creditos()
