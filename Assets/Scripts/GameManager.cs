@@ -24,8 +24,12 @@ public class GameManager : MonoBehaviour
     public int pratosEntregues = 0;
     public TextMeshProUGUI txt_PratosEntregues;
     public int pratosErrados = 0;
+    public int pontosFinais;
+    public int pontosObjetivo;
 
     float tempoNovaReceita = 10;
+
+    public bool isJogoOn = false;
 
     private void Awake()
     {
@@ -34,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        isJogoOn = true;
         txt_PratosEntregues.text = "x 0";
         criarNovoPedido();
         StartCoroutine(spawnarNovosPedidos());
@@ -129,5 +134,21 @@ public class GameManager : MonoBehaviour
         boloFinal.sprite = bolos[Random.Range(0, bolos.Length)];
         yield return new WaitForSeconds(1);
         efeitoFumaca.SetActive(false);
+    }
+
+    public void fimDeJogo()
+    {
+        isJogoOn = false;
+        pontosFinais = pratosEntregues - pratosErrados;
+
+        if (pontosFinais >= pontosObjetivo)
+        {
+            Debug.Log("Passou de fase");
+        }
+
+        else
+        {
+            Debug.Log("Game Over");
+        }
     }
 }

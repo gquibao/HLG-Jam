@@ -19,16 +19,19 @@ public class Relogio : MonoBehaviour
 
     private void Update()
     {
-        if (time <= tempoTotal)
+        if (GameManager.instance.isJogoOn)
         {
-            time += Time.deltaTime;
-            tempoFill += (1 / tempoTotal) * Time.deltaTime;
-            areaVermelha.fillAmount = time / tempoFill;
-        }
+            if (areaVermelha.fillAmount < 1)
+            {
+                time += Time.deltaTime;
+                tempoFill += (1 / tempoTotal) * Time.deltaTime;
+                areaVermelha.fillAmount = time / tempoFill;
+            }
 
-        else if (time > tempoTotal)
-        {
-            Debug.Log("Fim de Jogo");
+            else
+            {
+                GameManager.instance.fimDeJogo();
+            }
         }
     }
 }
