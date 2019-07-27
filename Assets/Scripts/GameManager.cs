@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject prefabPedido;
     public GameObject efeitoFumaca;
+    public GameObject recibo;
 
     public Transform varalPedidos;
 
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     float tempoNovaReceita = 10;
 
     public bool isJogoOn = false;
+    public bool passouFase = false;
 
     private void Awake()
     {
@@ -38,7 +40,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        isJogoOn = true;
+        recibo.SetActive(false);
+        pratosEntregues = 0;
+        pratosErrados = 0;
+        pontosFinais = 0;
+        isJogoOn = false;
         txt_PratosEntregues.text = "x 0";
         criarNovoPedido();
         StartCoroutine(spawnarNovosPedidos());
@@ -139,16 +145,17 @@ public class GameManager : MonoBehaviour
     public void fimDeJogo()
     {
         isJogoOn = false;
+        StopAllCoroutines();
         pontosFinais = pratosEntregues - pratosErrados;
-
         if (pontosFinais >= pontosObjetivo)
         {
-            Debug.Log("Passou de fase");
+            passouFase = true;
         }
 
         else
         {
-            Debug.Log("Game Over");
+            passouFase = false;
         }
+        recibo.SetActive(true);
     }
 }
