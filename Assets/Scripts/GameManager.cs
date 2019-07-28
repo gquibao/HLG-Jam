@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public enum FASE { FASE1 = 1, FASE2 = 2, FASE3 = 3};
+    public FASE faseAtual;
+
     public GameObject prefabPedido;
     public GameObject efeitoFumaca;
     public GameObject recibo;
@@ -32,9 +35,6 @@ public class GameManager : MonoBehaviour
 
     public bool isJogoOn = false;
     public bool passouFase = false;
-    public bool isFase1;
-    public bool isFase2;
-    public bool isFase3;
 
     private void Awake()
     {
@@ -153,6 +153,16 @@ public class GameManager : MonoBehaviour
         if (pontosFinais >= pontosObjetivo)
         {
             passouFase = true;
+            switch(faseAtual)
+            {
+                case FASE.FASE1:
+                    PlayerPrefs.SetInt("Fase1", 1);
+                    break;
+
+                case FASE.FASE2:
+                    PlayerPrefs.SetInt("Fase2", 1);
+                    break;
+            }
         }
 
         else

@@ -9,7 +9,7 @@ public class BotaoIngrediente : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.instance.ordemIngredientes.Count < 4)
+        if (GameManager.instance.ordemIngredientes.Count < 4 && GameManager.instance.isJogoOn)
         {
             Transform spawnerPosition = transform;
             Transform[] transforms = FindObjectsOfType<Transform>();

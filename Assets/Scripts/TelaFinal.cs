@@ -23,6 +23,30 @@ public class TelaFinal : MonoBehaviour
         if (GameManager.instance.passouFase)
         {
             resultado.sprite = Resources.Load<Sprite>("aprovado");
+            int pontos = GameManager.instance.pontosFinais;
+            switch (GameManager.instance.faseAtual)
+            {
+                case GameManager.FASE.FASE1:
+                    if (pontos > PlayerPrefs.GetInt("Recorde1"))
+                    {
+                        PlayerPrefs.SetInt("Recorde1", pontos);
+                    }
+                    break;
+
+                case GameManager.FASE.FASE2:
+                    if (pontos > PlayerPrefs.GetInt("Recorde2"))
+                    {
+                        PlayerPrefs.SetInt("Recorde2", pontos);
+                    }
+                    break;
+
+                case GameManager.FASE.FASE3:
+                    if (pontos > PlayerPrefs.GetInt("Recorde3"))
+                    {
+                        PlayerPrefs.SetInt("Recorde3", pontos);
+                    }
+                    break;
+            }
         }
 
         else

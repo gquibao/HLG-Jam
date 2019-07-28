@@ -1,0 +1,19 @@
+{
+  "btConfig": "configPT",
+  "btCreditos": "creditos",
+  "btIniciar": "jogar",
+  "btSair": "sair",
+  "fala1": "Bem vindo! Hoje é o seu primeiro dia em nossa cozinha, vamos torcer para não ser o último. Nossos clientes são bem frescos, então NUNCA se esqueça de seguir a receita. Ao contrário daquele rato, você ainda não é um Chef. Está vendo essas coisas na mesa? Isso é tudo que você precisa para fazer o melhor bolo de todos, pelo menos é o que espero de você.",
+  "fala2": "Quase me esqueci, seu pagamento é baseado na quantidade de receitas corretas menos as que estão erradas, eu irei exigir mais de você a cada dia, então tome cuidado! Vamos começar com 10, e não se sinta pressionado, mas você precisa fazer tudo antes que o relógio chegue ao fim. Boa sorte!",
+  "fala3": "MIAU! Você está fazendo um ótimo trabalho, mas não ache que seu rabo já está seguro. Como eu havia dito, hoje será mais difícil do que ontem, então seja cuidadoso com o relógio e a quantidade de bolos que você precisa assar! Eu quero     ver como você se vira com 15, coloque essas patas para trabalhar!",
+  "fala4": "Oh, olá! Eu diria que, com base nos meus cálculos, os financeiros é lógico, você está indo muito bem. Se você continuar assim pode acabar sendo contratado, por isso espero ver mais dinheiro, opa,  VOCÊ amanhã. Então vamos terminar seu período de experiência com 20! MIAU!",
+  "iconeAprovado": "aprovado",
+  "iconeDemitido": "demitido",
+  "txtArtista": "Artista:\nGabriela Dall'Agnol",
+  "txtAudio": "Áudio",
+  "txtConfiguracoes": "Configurações",
+  "txtCreditos": "Créditos",
+  "txtMusicas": "Música",
+  "txtProgramador": "Programador:\nGabriel Quibao",
+  "txtSelecaoIdioma": "Escolha o seu idioma"
+}
