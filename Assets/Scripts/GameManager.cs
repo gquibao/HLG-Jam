@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
 
     public bool isJogoOn = false;
     public bool passouFase = false;
+    public bool isFase1;
+    public bool isFase2;
+    public bool isFase3;
 
     private void Awake()
     {
