@@ -22,7 +22,7 @@ public class TelaFinal : MonoBehaviour
     {
         if (GameManager.instance.passouFase)
         {
-            resultado.sprite = Resources.Load<Sprite>("aprovado");
+            resultado.sprite = Resources.Load<Sprite>(Idioma.instance.iconeDemitido);
             int pontos = GameManager.instance.pontosFinais;
             switch (GameManager.instance.faseAtual)
             {
@@ -51,7 +51,7 @@ public class TelaFinal : MonoBehaviour
 
         else
         {
-            resultado.sprite = Resources.Load<Sprite>("demitido");
+            resultado.sprite = Resources.Load<Sprite>(Idioma.instance.iconeDemitido);
         }
 
         for (int i = 0; i <= GameManager.instance.pratosEntregues; i++)
