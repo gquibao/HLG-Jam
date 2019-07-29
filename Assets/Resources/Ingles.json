@@ -16,5 +16,10 @@
   "txtMusicas": "Music",
   "txtProgramador": "Programmer:\nGabriel Quibao",
   "txtSelecaoIdioma": "Select your language",
-  "txtParabens": "pop5EN"
+  "txtParabens": "pop5EN",
+  "ingrediente1" : "Broccoli",
+  "ingrediente2" : "Fish",
+  "ingrediente3" : "Chicken",
+  "ingrediente4" : "Meat",
+  "ingrediente5" : "Grapes"
 }

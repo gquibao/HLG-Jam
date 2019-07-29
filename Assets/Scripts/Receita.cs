@@ -31,23 +31,23 @@ public class Receita : MonoBehaviour
         switch(random)
         {
             case 0:
-                retorno = "Brocólis";
+                retorno = Idioma.instance.ingrediente1;
                 break;
 
             case 1:
-                retorno = "Peixe";
+                retorno = Idioma.instance.ingrediente2;
                 break;
 
             case 2:
-                retorno = "Frango";
+                retorno = Idioma.instance.ingrediente3;
                 break;
 
             case 3:
-                retorno = "Carne";
+                retorno = Idioma.instance.ingrediente4;
                 break;
 
             case 4:
-                retorno = "Uva";
+                retorno = Idioma.instance.ingrediente5;
                 break;
         }
 

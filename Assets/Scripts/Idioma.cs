@@ -31,4 +31,10 @@ public class Idioma
     public string txtMusicas;
 
     public string txtParabens;
+
+    public string ingrediente1;
+    public string ingrediente2;
+    public string ingrediente3;
+    public string ingrediente4;
+    public string ingrediente5;
 }
