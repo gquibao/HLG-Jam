@@ -955,7 +955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 0
   tempoFill: 0
-  tempoTotal: 90
+  tempoTotal: 120
   areaVermelha: {fileID: 1472914809}
 --- !u!1 &573504425
 GameObject:
@@ -2383,7 +2383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1295204041
 RectTransform:
   m_ObjectHideFlags: 0
