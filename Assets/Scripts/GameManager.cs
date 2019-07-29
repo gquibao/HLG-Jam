@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject recibo;
 
     public Transform varalPedidos;
+    public Image popupChefFinal;
 
     public List<Ingrediente> ordemIngredientes = new List<Ingrediente>();
     public List<Receita> ordemReceitas = new List<Receita>();
@@ -36,6 +40,11 @@ public class GameManager : MonoBehaviour
     public bool isJogoOn = false;
     public bool passouFase = false;
 
+    public AudioSource meow;
+    public AudioSource click;
+
+    public UnityEvent evento;
+
     private void Awake()
     {
         instance = this;
@@ -43,6 +52,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        evento = new UnityEvent();
         recibo.SetActive(false);
         pratosEntregues = 0;
         pratosErrados = 0;
@@ -51,6 +61,11 @@ public class GameManager : MonoBehaviour
         txt_PratosEntregues.text = "x 0";
         criarNovoPedido();
         StartCoroutine(spawnarNovosPedidos());
+
+        foreach(AudioSource audio in FindObjectsOfType<AudioSource>())
+        {
+            audio.volume = Configuracoes.volume;
+        }
     }
 
     public void adicionarIngredienteALuz(Ingrediente ingrediente)
@@ -83,7 +98,6 @@ public class GameManager : MonoBehaviour
 
         if (contadorAcertos >= 4)
         {
-            Debug.Log("Acertou");
             pratosEntregues++;
             txt_PratosEntregues.text = "x " + pratosEntregues;
             ordemReceitas[0].resultado.enabled = true;
@@ -139,6 +153,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(ingrediente.gameObject);
         }
+        meow.Play();
         efeitoFumaca.SetActive(true);
         boloFinal.sprite = bolos[Random.Range(0, bolos.Length)];
         yield return new WaitForSeconds(1);
@@ -149,6 +164,7 @@ public class GameManager : MonoBehaviour
     {
         isJogoOn = false;
         StopAllCoroutines();
+        evento.AddListener(voltarMenu);
         pontosFinais = pratosEntregues - pratosErrados;
         if (pontosFinais >= pontosObjetivo)
         {
@@ -162,6 +178,11 @@ public class GameManager : MonoBehaviour
                 case FASE.FASE2:
                     PlayerPrefs.SetInt("Fase2", 1);
                     break;
+
+                case FASE.FASE3:
+                    evento.RemoveAllListeners();
+                    evento.AddListener(encerrouJogo);
+                    break;
             }
         }
 
@@ -170,5 +191,21 @@ public class GameManager : MonoBehaviour
             passouFase = false;
         }
         recibo.SetActive(true);
+    }
+
+    public void ok()
+    {
+        evento.Invoke();
+    }
+
+    public void voltarMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void encerrouJogo()
+    {
+        popupChefFinal.sprite = Resources.Load<Sprite>(Idioma.instance.txtParabens);
+        popupChefFinal.gameObject.SetActive(true);
     }
 }

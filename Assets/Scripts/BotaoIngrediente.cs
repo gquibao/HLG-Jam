@@ -11,6 +11,7 @@ public class BotaoIngrediente : MonoBehaviour
     {
         if (GameManager.instance.ordemIngredientes.Count < 4 && GameManager.instance.isJogoOn)
         {
+            GameManager.instance.click.Play();
             Transform spawnerPosition = transform;
             Transform[] transforms = FindObjectsOfType<Transform>();
             foreach (Transform transform in transforms)

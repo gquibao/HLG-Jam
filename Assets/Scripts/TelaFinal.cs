@@ -22,7 +22,7 @@ public class TelaFinal : MonoBehaviour
     {
         if (GameManager.instance.passouFase)
         {
-            resultado.sprite = Resources.Load<Sprite>(Idioma.instance.iconeDemitido);
+            resultado.sprite = Resources.Load<Sprite>(Idioma.instance.iconeAprovado);
             int pontos = GameManager.instance.pontosFinais;
             switch (GameManager.instance.faseAtual)
             {
@@ -72,7 +72,7 @@ public class TelaFinal : MonoBehaviour
             txt_Total.text = "x" + i.ToString();
         }
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         resultado.gameObject.SetActive(true);
     }
 }

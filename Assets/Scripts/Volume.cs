@@ -19,5 +19,6 @@ public class Volume : MonoBehaviour
     public void SetVolume(float vol)
     {
         musicVolume = vol;
+        Configuracoes.volume = vol;
     }
 }

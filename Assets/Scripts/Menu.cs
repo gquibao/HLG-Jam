@@ -61,7 +61,7 @@ public class Menu : MonoBehaviour
 
         else
         {
-            if(PlayerPrefs.GetInt("Fase2") == 0)
+            if (PlayerPrefs.GetInt("Fase2") == 0)
             {
                 fase3.interactable = false;
             }
@@ -84,7 +84,7 @@ public class Menu : MonoBehaviour
         recordeFase1.text = PlayerPrefs.GetInt("Recorde1").ToString();
         recordeFase2.text = PlayerPrefs.GetInt("Recorde2").ToString();
         recordeFase3.text = PlayerPrefs.GetInt("Recorde3").ToString();
-}
+    }
 
     public void Jogar()
     {

@@ -29,4 +29,6 @@ public class Idioma
     public string txtProgramador;
     public string txtArtista;
     public string txtMusicas;
+
+    public string txtParabens;
 }
