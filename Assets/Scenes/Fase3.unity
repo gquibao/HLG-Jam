@@ -578,6 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+  ingredientName: peixe
   prefab: {fileID: 6427762702810566918, guid: 82f76a2d5331cdc4baec8096c30a8313, type: 3}
 --- !u!61 &171473514
 BoxCollider2D:
@@ -1999,6 +2000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  ingredientName: brocolis
   prefab: {fileID: 2429419700049039075, guid: ce3f3b2c5912ee843af6955a1832eb7b, type: 3}
 --- !u!61 &974336417
 BoxCollider2D:
@@ -2393,6 +2395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
+  ingredientName: carne
   prefab: {fileID: 77368059592434588, guid: ce02f3a07c62c1b4b992df8546694a28, type: 3}
 --- !u!61 &1061222634
 BoxCollider2D:
@@ -3058,6 +3061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
+  ingredientName: uva
   prefab: {fileID: 7408298331673331714, guid: fa9aaa5bf017abd409a9c8d9d1f7c6fd, type: 3}
 --- !u!61 &1582335226
 BoxCollider2D:
@@ -3891,6 +3895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
+  ingredientName: coxinha
   prefab: {fileID: 8337983219824699192, guid: baf7f3c0f336f28499d3a4c8adf9be9f, type: 3}
 --- !u!61 &1916153840
 BoxCollider2D:
